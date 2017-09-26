@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--发送语音的动画-->
+    <declare-styleable name="RippleLayout">
+        <attr name="color_s" format="color" />
+        <attr name="strokeWidth_s" format="dimension" />
+        <attr name="radius_s" format="dimension" />
+        <attr name="duration_s" format="integer" />
+        <attr name="rippleNums_s" format="integer" />
+        <attr name="scale_s" format="float" />
+    </declare-styleable>
+
+</resources>

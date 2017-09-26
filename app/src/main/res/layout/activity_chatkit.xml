@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.a54hk.chatkit.first.ChatkitActivity">
+
+
+    <com.stfalcon.chatkit.messages.MessagesList
+        android:id="@+id/messagelist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_relative"
+        >
+
+    </com.stfalcon.chatkit.messages.MessagesList>
+
+    <RelativeLayout
+        android:id="@+id/bottom_relative"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/send_message"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="发送信息"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:layout_toLeftOf="@+id/send_but"
+            />
+        <Button
+            android:id="@+id/send_but"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
