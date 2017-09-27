@@ -1,11 +1,13 @@
 package com.example.a54hk.chatkit.first;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -26,10 +28,13 @@ public class ChatkitActivity extends AppCompatActivity implements View.OnClickLi
     Button sendBut;
     EditText sendMessage;
     protected ImageLoader imageLoader;
+//    这个对应的是 左还是右。 o 在右 1 在左
     protected final String senderId = "0";
     private MessagesListAdapter messagesAdapter;
     String imgPath = "https://www.baidu.com/link?url=twSfi09lRLdw8C_zzgfUmBQXrJubNw8mnnsh370tJ4KpVt6eoROguPrMYDn9U1n0&wd=&eqid=e8c514e4000059e50000000359cb0c0b";
     String myImgPath = "https://www.baidu.com/link?url=NTYzgYDp_vH9yuVx9oY9m3XRzr_9Q0gnU7Vq3pJV2PIJW1Ym1Xa7MsDJjfxQTi-pAR-1EvfMDgBA-w0OLuGO5z5hJSf9IiYmFqpaVekiqsu&wd=&eqid=e8c514e4000059e50000000359cb0c0b";
+    private Typeface typeface;
+    int i= 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +42,16 @@ public class ChatkitActivity extends AppCompatActivity implements View.OnClickLi
         APP.ACTIVITY = this;
         initLayout();
         initMessageList();
-    }
 
+    }
 
     private void initLayout() {
         messagelist = (MessagesList) findViewById(R.id.messagelist);
         sendBut  = (Button) findViewById(R.id.send_but);
         sendBut.setOnClickListener(this);
         sendMessage = (EditText) findViewById(R.id.send_message);
+        typeface = Typeface.createFromAsset(getAssets() ,"美化自由之翼.ttf");
+
     }
 
 
@@ -52,7 +59,7 @@ public class ChatkitActivity extends AppCompatActivity implements View.OnClickLi
         imageLoader = new ImageLoader() {
             @Override
             public void loadImage(ImageView imageView, String url) {
-                Glide.with(ChatkitActivity.this).load(url).placeholder(R.mipmap.manager_sound).error(R.mipmap.ic_launcher).into(imageView);
+                Glide.with(ChatkitActivity.this).load(imgPath).placeholder(R.mipmap.manager_sound).error(R.mipmap.ic_launcher).into(imageView);
             }
         };
         MessageHolders holdersConfig = new MessageHolders()
@@ -93,6 +100,8 @@ public class ChatkitActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.send_but:
                 messagesAdapter.addToStart(new ChatMessageBean(new ChatUserBean("0", "小寓AAAAAAAPPPPP", myImgPath), sendMessage.getText().toString().trim()), true);
                 sendMessage.setText("");
+                messagesAdapter.addToStart(new ChatMessageBean(new ChatUserBean("1", "小寓", imgPath), "ni shi" + (i++)), true);
+
                 break;
         }
     }
