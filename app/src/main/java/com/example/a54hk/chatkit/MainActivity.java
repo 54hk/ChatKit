@@ -10,20 +10,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.iflytek.cloud.ErrorCode;
-import com.iflytek.cloud.RecognizerListener;
-import com.iflytek.cloud.RecognizerResult;
-import com.iflytek.cloud.SpeechConstant;
-import com.iflytek.cloud.SpeechError;
-import com.iflytek.cloud.SpeechRecognizer;
-import com.iflytek.cloud.SpeechUtility;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
 
     private ImageView ivSound;
     private RelativeLayout rlTalkLayout;
     private RippleLayoutView rippleLayout;
-    private SpeechRecognizer mIat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +41,16 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         switch (action) {
             case MotionEvent.ACTION_DOWN:
 
+                ivSound.setEnabled(true);
+                rlTalkLayout.setVisibility(View.VISIBLE);
+                rippleLayout.startRippleAnimation();
                 break;
             case MotionEvent.ACTION_MOVE:
 
                 break;
             case MotionEvent.ACTION_UP:
-
+                ivSound.setEnabled(false);
+                rlTalkLayout.setVisibility(View.GONE);
                 break;
         }
                 return true;

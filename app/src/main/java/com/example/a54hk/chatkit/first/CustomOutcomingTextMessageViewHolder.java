@@ -24,7 +24,7 @@ public class CustomOutcomingTextMessageViewHolder
     public void onBind(ChatMessageBean message) {
         super.onBind(message);
         ImageView ivUserAvatar = itemView.findViewById(R.id.messageUserAvatar);
-        Glide.with(APP.ACTIVITY).load(message.getUser().getAvatar()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(ivUserAvatar);
+        Glide.with(APP.ACTIVITY).load(message.getUser().getAvatar()).placeholder(R.mipmap.ic_launcher_round).error(R.mipmap.ic_launcher).into(ivUserAvatar);
 //        ImageLoadUtils.displayAsBitmap(itemView.getContext(),message.getUser().getAvatar(),ivUserAvatar,R.mipmap.profile_head_default);
     }
 }

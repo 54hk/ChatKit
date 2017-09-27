@@ -5,14 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.a54hk.chatkit.first.ChatkitActivity">
+    >
 
 
     <com.stfalcon.chatkit.messages.MessagesList
         android:id="@+id/messagelist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_relative"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        app:textAutoLink="all"
+        app:incomingBubbleDrawable="@drawable/bg_custom_incoming_message"
+        app:outcomingBubbleDrawable="@drawable/bg_custom_outcoming_message"
+        android:layout_alignParentTop="true"
+        app:incomingAvatarHeight="35dp"
+        app:incomingAvatarWidth="35dp"
         >
 
     </com.stfalcon.chatkit.messages.MessagesList>
